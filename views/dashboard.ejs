@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script src="https://www.lactame.com/lib/image-js/0.21.2/image.min.js"></script>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <h1 class="display-4">Dashboard Page!</h1>
+      <p class="lead">
+        This is a simple hero unit, a simple jumbotron-style component for
+        calling extra attention to featured content or information.Welcome <%=
+        name %>
+      </p>
+      <hr class="my-4" />
+      <p>
+        It uses utility classes for typography and spacing to space content out
+        within the larger container.
+      </p>
+
+      <a class="btn btn-primary" href="/users/logout" role="button">Logout</a>
+    </div>
+    <br />
+    <div class="container">
+      <img
+        id="color"
+        src="https://www.lactame.com/github/image-js/image-js/3073b80c7d626196cb669f9d617f491a8338ca66/test/img/taxi/original.jpeg"
+      />
+      <img id="result" />
+    </div>
+
+    <script>
+      async function process() {
+        let image = await IJS.Image.load(document.getElementById("color").src);
+
+        let grey = image.grey();
+
+        document.getElementById("result").src = grey.toDataURL();
+      }
+      process();
+    </script>
+  </body>
+</html>
